@@ -1,0 +1,16 @@
+version: '3'
+#  test
+services: 
+  demo1:
+    image: demo1
+    build: 
+      context: ./Demo1
+      dockerfile: dockerfile
+
+networks:
+  default:
+    external: 
+      name: nat
+
+
+#  docker-compse -f docker-compose.yml up -d

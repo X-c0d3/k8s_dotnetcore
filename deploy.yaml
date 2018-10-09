@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: K8S_Dotnet
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: k8s_dotnet
+    spec:
+      containers:
+      - name: k8s_dotnet
+        image: "k8s_dotnet:latest"
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 5000
+        livenessProbe:
+          httpGet:
+            path: /api/values
+            port: 5000
+        readinessProbe:
+          httpGet:
+            path: /api/values
+            port: 5000

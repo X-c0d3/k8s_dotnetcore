@@ -1,0 +1,8 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: k8s_dotnet
+spec:
+  backend:
+    serviceName: k8s_dotnet
+    servicePort: 5000
